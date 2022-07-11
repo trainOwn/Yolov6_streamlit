@@ -59,11 +59,14 @@ def run(weights=osp.join("./", 'yolov6s.pt'),
 
 
 
-selection = st.sidebar.selectbox("select a demo", ["detection", "classification"])
+selection = st.sidebar.radio("Demo YoloV6", ["Home", "Detection"])
 
+if selection == "Home":
+    st.title("YOLOv6 Object Detection Demo")
+    st.subheader("Creator - Kaushal R.")
 
-if selection == "detection":
-    st.title("Object Detection ")
+if selection == "Detection":
+    st.title("YOLOv6 Object Detection Demo")
 
     available_model = [
         'yolov6', 'resnet50', 'yolov4', 
@@ -72,7 +75,7 @@ if selection == "detection":
     #st.radio("colour", ['r', 'g', 'b'], index=1)
     model_select = st.selectbox("Select Model", available_model, index=0)
 
-    if model_select is "yolov6":
+    if model_select == "yolov6":
 
         score_thres = st.slider("conf", min_value = 0, max_value = 100, value = 45)
         #st.number_input("conf_number", min_value = 0, max_value = 100, value = 90)
