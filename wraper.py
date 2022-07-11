@@ -89,6 +89,8 @@ if selection == "Detection":
             original_image = np.array(original_image)
 
             st.write("**Detections**")
+            ret_img = cv2.cvtColor(ret_img, cv2.COLOR_BGR2RGB)
+            ret_img = Image.fromarray(ret_img)
             st.image(ret_img)
 
             st.write("Original Image")
